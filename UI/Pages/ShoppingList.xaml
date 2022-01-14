@@ -1,0 +1,159 @@
+﻿<Page x:Class="UI.Pages.ShoppingList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:local="clr-namespace:UI.Pages"
+      xmlns:n="clr-namespace:UI"
+      mc:Ignorable="d" 
+      Height="450" Width="380"
+      WindowHeight="521" WindowWidth="397"
+      Title="ShoppingList">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.ColumnSpan="2">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#7be9f6 " Offset="0.0"/>
+                    <GradientStop Color="#f083da" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <Grid Grid.Column="1" x:Name="BG">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="Grocery List"
+                           FontWeight="Bold"
+                           FontFamily="Corsiva"
+                           FontSize="25"
+                           Foreground="Black"
+                           HorizontalAlignment="Center"
+                           Margin="0,5,0,0"/>
+                <Grid Grid.Row="1" Margin="0,5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox FontFamily="Corsiva"
+                                 Height="25"
+                                 Text="Product"
+                                 x:Name="product"
+                                 FontSize="20"
+                                 FontWeight="Medium"                                   
+                                 Width="120"
+                                 Margin="10,0,10,0"
+                                 HorizontalAlignment="Center"                                 
+                                 Foreground="#FF414040"
+                                 Background="Transparent"
+                                 BorderThickness="0"/>
+                        <TextBox FontFamily="Corsiva"
+                                 FontSize="20"
+                                 Text="Quantity"
+                                 x:Name="quantity"
+                                 FontWeight="Medium"                                 
+                                 Width="120"
+                                 Foreground="#FF414040"
+                                 Background="Transparent"
+                                 BorderThickness="0"/>
+                    </StackPanel>
+                    <Button Height="25" Width="65" Grid.Column="1" FontSize="15" Style="{StaticResource Btn}" Click="Button_Click_3">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
+                            <TextBlock Text="Add"/>
+                            <iconPacks:PackIconMaterial Kind="Cart"
+                                                        Width="10"
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"
+                                                        Margin="6,0,0,0"/>
+                        </StackPanel>
+                    </Button>
+                </Grid>
+                <Border Width="120"
+                        Height="2"
+                        Background="White"
+                        Opacity="0.5"
+                        HorizontalAlignment="Left"
+                        Margin="10,-5,0,0"/>
+                <Border Width="120"
+                        Height="2"
+                        Background="White"
+                        Opacity="0.5"
+                        HorizontalAlignment="Left"
+                        Margin="140,-5,0,0"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1">
+                <StackPanel>
+                    <Border Background="White" 
+                            Height="330" 
+                            CornerRadius="20"
+                            Margin="17 0"
+                            Opacity="0.3"/>
+                    <ListBox Height="330" 
+                             Margin="17,-330,17,7"
+                             x:Name="shoplist"
+                             Background="Transparent"
+                             BorderThickness="0" FontSize="16"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Height="25" 
+                            Width="85" 
+                            FontSize="15" 
+                            HorizontalAlignment="Center" 
+                            Style="{StaticResource Btn}" 
+                            Click="Button_Click_2"
+                            Margin="30,0">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
+                            <TextBlock Text="Remove"/>
+                            <iconPacks:PackIconMaterial Kind="CloseCircle"
+                                                        Width="10"
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"
+                                                        Margin="5,0,0,0"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Height="25"
+                            Width="120"
+                            Content="Add to storage"
+                            Style="{StaticResource Btn}"
+                            FontSize="15"
+                            FontWeight="Medium"
+                            FontFamily="Corsiva"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" Click="Button_Click_4"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="0" HorizontalAlignment="Left" Width="50" ButtonBase.Click="Grid_Click">
+            <Border Background="White"
+                    Opacity="0.3"
+                    Width="50"/>
+            <n:NavButton Width="45" Height="45" Margin="0,-350,0,0" ImageSoure="/Images/UserIcon.png" NavUri="/Pages/UserPage.xaml"/>
+
+            <n:NavButton Width="45" Height="45" Margin="0,-120,0,0" ImageSoure="/Images/List.png" NavUri="/Pages/ShoppingList.xaml"/>
+
+            <n:NavButton Width="45" Height="45" Margin="0,110,0,0" ImageSoure="/Images/Storage.png" NavUri="/Pages/StoragePage.xaml"/>
+
+            <n:NavButton Width="45" Height="45" Margin="0,340,0,0" ImageSoure="/Images/Recipe.png" NavUri="/Pages/Recipe.xaml"/>
+        </Grid>
+    </Grid>
+</Page>

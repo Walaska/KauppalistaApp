@@ -1,0 +1,152 @@
+﻿<Page x:Class="UI.Pages.UserPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:local="clr-namespace:UI.Pages"
+      xmlns:n="clr-namespace:UI"
+      mc:Ignorable="d" 
+      Height="450" Width="380"
+      WindowHeight="521" WindowWidth="397"
+      Title="UserPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.ColumnSpan="2">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#7be9f6 " Offset="0.0"/>
+                    <GradientStop Color="#f083da" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <Grid Grid.Column="1" x:Name="BG">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="User Profile"
+                           FontWeight="Bold"
+                           FontFamily="Corsiva"
+                           FontSize="25"
+                           Foreground="Black"
+                           HorizontalAlignment="Center"
+                           Margin="0,5,0,0"/>
+                <Image Source="/Images/MaleProfile.png" Stretch="None"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1">
+                <StackPanel>
+                    <Border Background="White" 
+                            Height="260" 
+                            CornerRadius="20"
+                            Margin="17 0"
+                            Opacity="0.3">
+                    </Border>
+                    <Grid Margin="25,-260,17,6" Height="260">
+                        <TextBlock Text="First Name:"
+                                   HorizontalAlignment="Left"
+                                   FontFamily="Corsiva"
+                                   x:Name="first_name"
+                                   FontSize="18"
+                                   FontWeight="Medium"
+                                   Margin="0,10,0,0"
+                                   Height="18"
+                                   VerticalAlignment="Top"/>
+                        <TextBlock Text="Last Name:"
+                                   HorizontalAlignment="Left"
+                                   FontFamily="Corsiva"
+                                   x:Name="last_name"
+                                   FontSize="18"
+                                   FontWeight="Medium"
+                                   Margin="0,50,0,0"
+                                   Height="18"
+                                   VerticalAlignment="Top"/>
+                        <TextBlock Text="E-Mail:"
+                                   HorizontalAlignment="Left"
+                                   FontFamily="Corsiva"
+                                   FontSize="18"
+                                   x:Name="email"
+                                   FontWeight="Medium"
+                                   Margin="0,90,0,0"
+                                   Height="18"
+                                   VerticalAlignment="Top"/>
+                        <TextBlock Text="Gender:"
+                                   HorizontalAlignment="Left"
+                                   FontFamily="Corsiva"
+                                   FontSize="18"
+                                   x:Name="gender"
+                                   FontWeight="Medium"
+                                   Margin="0,130,0,0"
+                                   Height="18"
+                                   VerticalAlignment="Top"/>
+                        <TextBlock Text="Phone Number:"
+                                   HorizontalAlignment="Left"
+                                   FontFamily="Corsiva"
+                                   FontSize="18"
+                                   x:Name="phone_number"
+                                   FontWeight="Medium"
+                                   Margin="0,170,0,0"
+                                   Height="18"
+                                   VerticalAlignment="Top"/>
+                        <TextBlock Text="Location:"
+                                   HorizontalAlignment="Left"
+                                   FontFamily="Corsiva"
+                                   x:Name="location"
+                                   FontSize="18"
+                                   FontWeight="Medium"
+                                   Margin="0,210,0,0"
+                                   Height="18"
+                                   VerticalAlignment="Top"/>
+
+                    </Grid>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Button Margin="50,0,0,0" Height="25" Width="95" FontSize="15" HorizontalAlignment="Center" Style="{StaticResource Btn}" Click="Button_Click">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
+                            <TextBlock Text="Sign Out"/>
+                            <iconPacks:PackIconMaterial Kind="Logout"  
+                                                        Width="10"
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"
+                                                        Margin="5,0,0,0"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Grid Margin="50,0,0,0" ButtonBase.Click="Grid_Click_1">
+                        <local:AddButton Text="Edit Info"
+                                         FontSize="15"
+                                         Height="25"
+                                         Width="80"
+                                         FontWeight="Medium"
+                                         FontFamily="Corsiva"
+                                         NavUri="/Pages/EditInfo.xaml"/>
+                    </Grid>
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="0" HorizontalAlignment="Left" Width="50" ButtonBase.Click="Grid_Click">
+            <Border Background="White"
+                    Opacity="0.3"
+                    Width="50"/>
+            <n:NavButton Width="45" Height="45" Margin="0,-350,0,0" ImageSoure="/Images/UserIcon.png" NavUri="/Pages/UserPage.xaml"/>
+
+            <n:NavButton Width="45" Height="45" Margin="0,-120,0,0" ImageSoure="/Images/List.png" NavUri="/Pages/ShoppingList.xaml"/>
+
+            <n:NavButton Width="45" Height="45" Margin="0,110,0,0" ImageSoure="/Images/Storage.png" NavUri="/Pages/StoragePage.xaml"/>
+
+            <n:NavButton Width="45" Height="45" Margin="0,340,0,0" ImageSoure="/Images/Recipe.png" NavUri="/Pages/Recipe.xaml"/>
+        </Grid>
+    </Grid>
+</Page>
